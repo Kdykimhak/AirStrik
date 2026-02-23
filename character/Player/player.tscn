@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://ck7wmkqs47s31"]
+
+[ext_resource type="Script" uid="uid://c43i7pq4cusmi" path="res://character/Player/Player.gd" id="1_jc25r"]
+[ext_resource type="Texture2D" uid="uid://jrmmhee132s6" path="res://asset/sprites/Ship6.png" id="2_8fy8s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8fy8s"]
+radius = 54.589375
+
+[node name="Player" type="Area2D" groups=["enemies"]]
+collision_layer = 2
+collision_mask = 21
+script = ExtResource("1_jc25r")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_8fy8s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8fy8s")
+
+[node name="Muzzle" type="Marker2D" parent="."]
+position = Vector2(0, -86)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

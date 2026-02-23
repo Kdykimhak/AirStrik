@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://conrdiyejhi3q"]
+
+[ext_resource type="Script" uid="uid://cp18g6w01mscd" path="res://main.gd" id="1_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://csxicf6c540m8" path="res://asset/sprites/background.png" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://ck7wmkqs47s31" path="res://character/Player/player.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://k1o4o2omffhq" path="res://character/enemy/EnemySpawner.tscn" id="3_h2yge"]
+[ext_resource type="AudioStream" uid="uid://bcbtdap7blxxc" path="res://asset/audio/background_music.ogg" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://e5vje126qyfd" path="res://game_over.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://v3gutdo22is6" path="res://start_screen.tscn" id="7_272bh"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_1bvp3")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(270, 480.00003)
+scale = Vector2(0.5332031, 0.9414063)
+texture = ExtResource("1_ig7tw")
+
+[node name="EnemySpawner" parent="." instance=ExtResource("3_h2yge")]
+
+[node name="Player" parent="." instance=ExtResource("2_h2yge")]
+position = Vector2(280, 896)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_lquwl")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Score" type="Label" parent="UI"]
+offset_left = 9.0
+offset_top = 27.0
+offset_right = 141.0
+offset_bottom = 77.0
+text = "SCORE : 0"
+
+[node name="GameOver" parent="UI" instance=ExtResource("6_7mycd")]
+
+[node name="StartScreen" parent="UI" instance=ExtResource("7_272bh")]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cftkmqwydcwlr"]
+
+[ext_resource type="Script" uid="uid://cal4iataf4cg6" path="res://projectiles/player_laser.gd" id="1_3vemd"]
+[ext_resource type="Texture2D" uid="uid://isxrxs5gqrlb" path="res://asset/sprites/02.png" id="2_3vemd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3vemd"]
+radius = 8.0
+
+[node name="PlayerLaser" type="Area2D"]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_3vemd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_3vemd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_3vemd")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
