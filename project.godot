@@ -15,11 +15,6 @@ run/main_scene="uid://conrdiyejhi3q"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
 
-[display]
-
-window/size/viewport_width=540
-window/size/viewport_height=960
-
 [global_group]
 
 enemies=""
@@ -64,3 +59,4 @@ shoot={
 [rendering]
 
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
